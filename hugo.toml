@@ -1,4 +1,77 @@
+baseURL = "https://7xrzan.github.io/"
+title = "Low Level Stuff"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
 theme = "PaperMod"
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'Guacamole.bin'
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+
+[pagination]
+pagerSize = 10
+
+# ----------------------------
+# PAPER MOD CONFIG
+# ----------------------------
+
+[params]
+
+defaultTheme = "dark"
+disableThemeToggle = true
+
+ShowCodeCopyButtons = true
+ShowReadingTime = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowToc = true
+
+env = "production"
+
+# ----------------------------
+# SEARCH
+# ----------------------------
+
+[outputs]
+home = ["HTML","RSS","JSON"]
+
+# ----------------------------
+# MENU
+# ----------------------------
+
+[[menu.main]]
+identifier = "home"
+name = "home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "posts"
+name = "posts"
+url = "/posts/"
+weight = 2
+
+[[menu.main]]
+identifier = "about"
+name = "about"
+url = "/about/"
+weight = 3
+
+# ----------------------------
+# SYNTAX HIGHLIGHT
+# ----------------------------
+
+[markup]
+
+[markup.highlight]
+style = "gruvbox"
+lineNos = true
+lineNumbersInTable = false
+tabWidth = 4
+noClasses = false
+guessSyntax = true
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 4

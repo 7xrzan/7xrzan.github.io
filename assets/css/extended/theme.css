@@ -1,0 +1,105 @@
+:root {
+    --theme: #000000;
+    --entry: #000000;
+}
+
+body {
+    color: #d6d6d6;
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    line-height: 1.7;
+}
+.post-entry {
+    background: #1f3b56;
+    border: 2px solid #912a;
+}
+.post-entry:hover {
+    background: darkslategrey;
+    border: 2px solid seagreen;
+}
+
+h1,
+h3,
+h4 {
+    color: #fbcb3e;
+}
+h2 {
+    color: #3f6992;
+}
+h1 {
+    text-align: center;
+}
+
+a {
+    color: #f8e2b9;
+}
+
+a:hover {
+    color: steelblue;
+}
+
+code {
+    color: #9eff6e;
+}
+
+/*
+pre {
+    align-items: center;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+code {
+    color: #9eff6e;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid #2a2a2a;
+    padding: 6px;
+}
+
+th {
+    color: #9eff6e;
+    background: #0f0f0f;
+}
+
+blockquote {
+    border-left: 3px solid #63e6ff;
+    padding-left: 10px;
+    color: #aaaaaa;
+}
+
+.header {
+    border-top: 2px solid blanchedalmond;
+    border-bottom: 1px solid blanchedalmond;
+}
+
+p {
+    color: white;
+}
+
+.footer {
+    background-color: #0f0f0f;
+    border-top: 1px solid #2a2a2a;
+    color: #888;
+}*/
+
+:root {
+    --theme: #000000;
+    --entry: #000000;
+}
+
+html,
+body,
+.post-single,
+.archive,
+.list,
+.content {
+    background: #132435 !important;
+}
