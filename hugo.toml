@@ -31,6 +31,15 @@ env = "production"
 disableSpecial1stPost = true
 displayFullContent = false
 hideAllPosts = true
+[params.label]
+text = ""
+icon = "/images/logo.png"
+iconHeight = 60
+[params.assets]
+    favicon = "/images/logo.png"
+    favicon16x16 = "/images/logo.png"
+    favicon32x32 = "/images/logo.png"
+    apple_touch_icon = "/images/logo.png"
 
 # ----------------------------
 # SEARCH

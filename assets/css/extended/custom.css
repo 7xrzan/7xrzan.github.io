@@ -10,6 +10,32 @@
     --v6: #daf1de;
     --main-font: 'JetBrains Mono', monospace;
 }
+/* Ajustes para el logo de imagen */ 
+
+/* ==========================================================================
+   AJUSTES DE LOGO Y NAVEGACIÓN
+   ========================================================================== */
+
+.logo a {
+    font-size: 0; /* Oculta el texto plano "Kernelized" sin afectar la imagen */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    /* Filtro para convertir cualquier color (incluyendo negro) a blanco puro */
+    filter: brightness(0) invert(1);
+    
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+    /* Añade un brillo esmeralda al pasar el mouse */
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--v5));
+}
 
 html, body {
     font-family: var(--main-font) !important;
@@ -348,8 +374,8 @@ html, body {
 }
 
 .post-preview-image img {
-    width: 150px;
-    height: 90px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border: 1px solid #33ff33;
     filter: sepia(1) hue-rotate(90deg); /* Efecto monitor verde */
