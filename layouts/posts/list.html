@@ -1,0 +1,83 @@
+{{- define "main" }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- .Content }}
+</div>
+{{- end }}
+
+{{- /* Obtenemos todos los posts de las subcarpetas */}}
+{{- $pages := .Site.RegularPages }}
+{{- if .IsSection }}
+    {{- if eq .Section "posts" }}
+        {{- /* Si estamos en /posts/, traemos TODO lo que esté dentro de posts/ */}}
+        {{- $pages = where .Site.RegularPages "Section" "posts" }}
+    {{- else }}
+        {{- /* Si estamos en una subcategoría (opsys, etc), filtramos solo esa */}}
+        {{- $pages = .Pages }}
+    {{- end }}
+{{- end }}
+
+{{- $paginator := .Paginate $pages }}
+<!---->
+<!-- <div class="grid-archive"> -->
+<!-- {{- range $paginator.Pages }} -->
+<!--     <article class="post-entry retro-archive-card"> -->
+<!--         <header class="entry-header"> -->
+<!--             <h2>{{ .Title }}</h2> -->
+<!--         </header> -->
+<!--         <div class="entry-content"> -->
+<!--             <p>{{ .Params.description | default .Summary | truncate 120 }}</p> -->
+<!--         </div> -->
+<!--         <footer class="entry-footer"> -->
+<!--             <span>{{ .Date.Format "Jan 02, 2006" }}</span> |  -->
+<!--             <span>{{ .Params.categories }}</span> -->
+<!--         </footer> -->
+<!--         <a class="entry-link" aria-label="post link to {{ .Title }}" href="{{ .Permalink }}"></a> -->
+<!--     </article> -->
+<!-- {{- end }} -->
+<!-- </div> -->
+
+<div class="grid-archive">
+{{- range $paginator.Pages }}
+    <article class="post-entry retro-archive-card">
+        <header class="card-header">
+            <div class="cat-dot"></div>
+            <span class="cat-id">REG_{{ .Date.Format "2006" }}</span>
+            <h2 class="archive-title">{{ .Title }}</h2>
+        </header>
+        
+        <div class="card-content">
+            {{ with .Params.cover.image }}
+            <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="card-image">
+            {{ else }}
+            <img src="/images/term.png" alt="Default" class="card-image">
+            {{ end }}
+            
+            <div class="entry-content">
+                <p>{{ .Params.description | default .Summary | truncate 120 }}</p>
+            </div>
+        </div>
+
+        <footer class="entry-footer">
+            <span>{{ .Date.Format "Jan 02, 2006" }}</span>
+        </footer>
+        <a class="entry-link" aria-label="post link to {{ .Title }}" href="{{ .Permalink }}"></a>
+    </article>
+{{- end }}
+</div>
+
+{{- if gt $paginator.TotalPages 1 }}
+<footer class="page-footer">
+    <nav class="pagination">
+        {{- if $paginator.HasPrev }}
+        <a class="prev" href="{{ $paginator.Prev.URL }}">« Prev</a>
+        {{- end }}
+        {{- if $paginator.HasNext }}
+        <a class="next" href="{{ $paginator.Next.URL }}">Next »</a>
+        {{- end }}
+    </nav>
+</footer>
+{{- end }}
+
+{{- end }}{{/* end main */}}

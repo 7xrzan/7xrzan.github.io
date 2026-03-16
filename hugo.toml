@@ -1,7 +1,7 @@
 baseURL = "https://7xrzan.github.io/"
-title = "Low Level Stuff"
-languageCode = "en-us"
-defaultContentLanguage = "en"
+title = "Kernelized"
+languageCode = "es-mx"
+defaultContentLanguage = "es"
 
 theme = "PaperMod"
 
@@ -17,6 +17,7 @@ pagerSize = 10
 # ----------------------------
 
 [params]
+homeInfoParams = true
 
 defaultTheme = "dark"
 disableThemeToggle = true
@@ -26,8 +27,10 @@ ShowReadingTime = true
 ShowPostNavLinks = true
 ShowBreadCrumbs = true
 ShowToc = true
-
 env = "production"
+disableSpecial1stPost = true
+displayFullContent = false
+hideAllPosts = true
 
 # ----------------------------
 # SEARCH
@@ -65,13 +68,13 @@ weight = 3
 [markup]
 
 [markup.highlight]
-style = "gruvbox"
+style = "nord"
 lineNos = true
 lineNumbersInTable = false
 tabWidth = 4
-noClasses = false
+noClasses = true
 guessSyntax = true
 
 [markup.tableOfContents]
-startLevel = 2
+startLevel = 1
 endLevel = 4

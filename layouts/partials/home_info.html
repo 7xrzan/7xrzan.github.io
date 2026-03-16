@@ -1,0 +1,100 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+<div class="hero-layout">
+    <div class="hero-left">
+        <h1 class="hero-title">Kernelized</h1>
+
+        <p class="hero-text">
+            Un blog más de seguridad y sistemas Operativos... ¿y de gráficos por computadora?
+            Un proyecto nacido como hobby orientado a todo aquel interesado en el área.
+            El enfoque es "from scratch", "bare metal". Si bien explicamos las bases, te toca a ti profundizar en ellos.
+            ¡Disfruta! <br>
+            <strong>-7xzan</strong>
+        </p>
+    </div>
+
+    <div class="hero-right">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <p>  ARAGON Industries</p>
+          </div>
+
+          <div class="main-container">
+            <div class="terminal-body">
+              <p class="terminal-text">~$ sudo ./c0ol_$tuff.out</p>
+              <canvas id="hero-canvas"></canvas>
+            </div>
+            <div class="side-buttons">
+              <div class="side-btn red-btn"></div>
+              <div class="side-btn black-btn"></div>
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<div class="categories-container">
+    <h2 class="cat-section-title">Categorías</h2>
+    <div class="cat-grid">
+        <a href="/posts/opsys/" class="cat-card">
+            <div class="cat-card-header">
+                <div class="cat-dot"></div>
+                <span class="cat-id">OS-01</span>
+            </div>
+            <div class="cat-card-body">
+                <img src="/images/boot-process.jpg" alt="Sistemas Operativos">
+                <h3>Sistemas Operativos</h3>
+            </div>
+        </a>
+
+        <a href="/posts/graphics/" class="cat-card">
+            <div class="cat-card-header">
+                <div class="cat-dot"></div>
+                <span class="cat-id">GFX-02</span>
+            </div>
+            <div class="cat-card-body">
+                <img src="/images/elf.jpg" alt="Gráficos">
+                <h3>Gráficos</h3>
+            </div>
+        </a>
+
+        <a href="/posts/security" class="cat-card">
+            <div class="cat-card-header">
+                <div class="cat-dot"></div>
+                <span class="cat-id">SEC-03</span>
+            </div>
+            <div class="cat-card-body">
+                <img src="/images/ghidra.jpg" alt="Seguridad">
+                <h3>Seguridad</h3>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="latest-post-section">
+    <h2 class="cat-section-title">Last Report</h2>
+    <div class="terminal-card">
+        {{ range first 1 (where .Site.RegularPages "Section" "posts") }}
+        <div class="terminal-card-body">
+            <div class="post-preview-image">
+                {{ with .Params.cover.image }}
+                <img src="{{ . | absURL }}" alt="{{ $.Title }}">
+                {{else}}
+                <img src="/images/term.png" alt="Default">
+                {{ end }}
+            </div>
+            <div class="post-preview-info">
+                <span class="status-blink">● LIVE_FEED</span>
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Params.description | default .Summary | truncate 150 }}</p>
+                <a href="{{ .Permalink }}" class="read-more-btn">> ACCEDER_ARCHIVO</a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>

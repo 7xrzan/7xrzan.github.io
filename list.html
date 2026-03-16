@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+
+    {{if .Content}}
+    <div class="section-intro">{{.Content}}</div>
+    {{end}}
+</header>
+
+<div class="post-grid">
+    {{ $paginator := .Paginate .RegularPages }} {{ range $paginator.Pages }}
+
+    <article class="post-card">
+        {{ with .Params.cover.image }}
+        <div class="post-image">
+            <img src="{{ . | absURL }}" />
+        </div>
+        {{ end }}
+
+        <div class="post-body">
+            <h2>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h2>
+
+            <p>{{ .Summary | truncate 120 }}</p>
+        </div>
+    </article>
+
+    {{ end }}
+</div>
+
+{{ template "_internal/pagination.html" . }} {{ end }}
