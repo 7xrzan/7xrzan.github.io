@@ -340,6 +340,26 @@ html, body {
     top: 6px;
     border-radius: 1px;
 }
+
+/* Estado apagado del monitor */
+.terminal-body.off {
+    background: #050505 !important;
+    box-shadow: inset 0 0 100px #000 !important;
+    border-color: #111 !important;
+}
+
+/* Ocultar contenido cuando está apagado */
+.terminal-body.off #hero-canvas,
+.terminal-body.off .terminal-text {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Animación opcional para el botón rojo al ser presionado */
+.red-btn:active {
+    transform: scale(0.95);
+    filter: brightness(0.8);
+}
 /*================latest post section 
  ===============================================*/
 .latest-post-section {
